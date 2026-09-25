@@ -5,7 +5,7 @@ The bridge reads each topic's message definition at runtime and turns every nume
 into an ATLAS parameter automatically. Anything that can run `foxglove_bridge` works.
 
 
-
+https://github.com/user-attachments/assets/a8000c62-14e1-4c6a-8caa-4233b84bbaeb
 
 
 **You don't need a robot to try it.** Two proven data sources:
