@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  TEMPLATE - copy this file to "NuGet.Config" and fill in your credentials.
+
+	  Copy-Item NuGet.Config.template NuGet.Config
+
+  "NuGet.Config" is git-ignored because it will contain a GitHub token.
+  Never commit the copy you fill in.
+
+  The MA.Streaming / MA.DataPlatforms packages are published to GitHub Packages
+  (nuget.pkg.github.com/mat-docs). GitHub Packages requires authentication even
+  for public packages, so a token is needed. A free personal GitHub account with
+  a read:packages token is enough - no special organisation access is required.
+
+  Generate a token: GitHub -> Settings -> Developer settings ->
+  Personal access tokens (classic) -> scope "read:packages".
+-->
+<configuration>
+  <packageSources>
+	<!--
+	  <clear /> drops any feeds inherited from a machine-level or parent NuGet.Config
+	  (for example an authenticated Azure DevOps feed). Without it, NuGet validates every
+	  inherited feed during restore, and one you cannot authenticate against fails the build.
+	-->
+	<clear />
+	<add key="nuget.org" value="https://api.nuget.org/v3/index.json" protocolVersion="3" />
+	<add key="github" value="https://nuget.pkg.github.com/mat-docs/index.json" protocolVersion="3" />
+  </packageSources>
+
+  <packageSourceCredentials>
+	<github>
+	  <add key="Username" value="YOUR_GITHUB_USERNAME" />
+	  <add key="ClearTextPassword" value="YOUR_GITHUB_TOKEN" />
+	</github>
+  </packageSourceCredentials>
+</configuration>

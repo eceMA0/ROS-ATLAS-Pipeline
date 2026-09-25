@@ -1,0 +1,40 @@
+{
+  // Robot side: foxglove_bridge's WebSocket (ros2 launch foxglove_bridge foxglove_bridge_launch.xml)
+  "robotUrl": "ws://robot.local:8765",
+
+  // ATLAS side: the Kafka broker ATLAS's Stream Recorder reads from
+  "kafkaBroker": "localhost:9094",
+  "dataSource": "Default",
+  // Same as FormulaStudent's MockDataWriter: the default stream plus a named one.
+  "streams": [ "", "Stream1" ],
+  "sessionName": "ROS",
+
+  // Which topics to bridge (regexes). Every advertised topic that matches an include pattern and
+  // no exclude pattern is bridged; each becomes an ATLAS group, e.g. /caninput/inputs -> caninput_inputs.
+  "includeTopics": [ ".*" ],
+  "excludeTopics": [ "^/rosout$", "^/parameter_events$", "^/tf(_static)?$" ],
+
+  // Arrays longer than this are skipped (LaserScan ranges, covariances, images...).
+  "maxArrayLength": 32,
+
+  // Topics active within this many seconds of start-up share one ATLAS configuration packet.
+  "discoveryWindowSeconds": 2.0,
+  "flushIntervalMs": 50,
+
+  // Defaults for parameters without an entry below.
+  "defaultFrequencyHz": 100,
+  "defaultMinValue": 0,
+  "defaultMaxValue": 100,
+
+  // Optional per-parameter metadata, keyed "<topic>/<field path>". '*' is a wildcard.
+  "parameters": {
+    "/caninput/inputs/axis_percent[*]": { "units": "%", "minValue": 0, "maxValue": 100 },
+    "/caninput/inputs/aux_volts": { "units": "V", "minValue": -5, "maxValue": 5 },
+    "/caninput/inputs/digital[*]": { "minValue": 0, "maxValue": 1 },
+    "/caninput/inputs/rotary_position[*]": { "minValue": 0, "maxValue": 16 },
+    "/caninput/analog/volts[*]": { "units": "V", "minValue": 0, "maxValue": 5 },
+    "/caninput/analog/supply_volts": { "units": "V", "minValue": 0, "maxValue": 20 },
+    "/caninput/status/board_temp_c": { "units": "degC", "minValue": -20, "maxValue": 100 },
+    "/caninput/status/rail_volts": { "units": "V", "minValue": 0, "maxValue": 6 }
+  }
+}

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.35.1" />
+    <PackageReference Include="MA.DataPlatforms.Streaming.Support.Lib.Core" Version="2.1.4.22" />
+    <PackageReference Include="MA.Streaming.Abstraction" Version="2.1.4.14" />
+    <PackageReference Include="MA.Streaming.Core" Version="2.1.4.14" />
+    <PackageReference Include="MA.Streaming.Proto.Core" Version="2.1.4.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

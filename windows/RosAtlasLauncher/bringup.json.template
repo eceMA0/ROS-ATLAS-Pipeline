@@ -1,0 +1,40 @@
+{
+  // Copy this file to "bringup.json" (same folder) and fill in your robot's details.
+  // bringup.json is gitignored; this template is the version that ships publicly.
+
+  // Robot connection. Host can be overridden with --host or the first positional argument;
+  // if neither is given the launcher prompts for it.
+  "host": "",
+  "user": "ubuntu",
+  "port": 22,
+  // Optional private key. Empty = let the OpenSSH client pick (agent, ~/.ssh/id_*).
+  "identityFile": "",
+
+  // CAN interface brought up before anything else.
+  "canChannel": "can0",
+  "canBitrate": 1000000,
+
+  // Where the ROS 2 workspace lives on the robot, and the distro to source.
+  "rosDistro": "jazzy",
+  "workspace": "~/dev/caninput/ros2_ws",
+  // Run "colcon build" before launching. Off by default: it is slow and usually unnecessary.
+  "build": false,
+
+  // Foxglove bridge WebSocket port. Must match the port in RosAtlasBridge's config.json.
+  "foxglovePort": 8765,
+
+  // caninput_node parameters.
+  "publishRateHz": 100.0,
+  "statusRateHz": 1.0,
+
+  // Seconds to wait for the foxglove port to start accepting connections.
+  "readyTimeoutSeconds": 30,
+
+  // Start RosAtlasBridge.exe locally once the robot is up. Override with --bridge/--no-bridge.
+  "startBridge": true,
+  // Empty = look next to the launcher, then in ../RosAtlasBridge/bin/<cfg>/net8.0.
+  "bridgeExecutable": "",
+
+  // Bring the CAN interface down on exit. Off by default: it can disturb other users of the bus.
+  "canDownOnExit": false
+}

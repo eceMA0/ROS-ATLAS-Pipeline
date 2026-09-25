@@ -1,0 +1,62 @@
+# ---- .NET ----
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+.vs/
+[Dd]ebug/
+[Rr]elease/
+*.dll
+*.exe
+*.pdb
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# ---- ROS 2 / colcon ----
+build/
+install/
+log/
+
+# ---- Secrets / credentials ----
+key.info
+*.pem
+*.key
+id_rsa*
+*.env
+.env
+
+# NuGet feed credentials (contains a GitHub token). Use NuGet.Config.template.
+NuGet.Config
+nuget.config
+
+# ---- Not published: tests and test tooling (kept locally, excluded from the public repo) ----
+windows/RosAtlasBridge.Tests/
+ros2_ws/src/caninput_can/test/
+tools/make_cdr_goldens.py
+tools/test_remote_script.sh
+tools/test_wrapper.sh
+
+# ---- Confidential hardware CAN map (kept locally, never published) ----
+# Official device documentation (CAN matrix, specs, reprogramming, user guides).
+*.pdf
+# Standalone decoder that embeds the real CAN matrix.
+siu700_decode.py
+caninput_decode.py
+# Real CAN map used by decoder.py when present; public clones fall back to example values.
+ros2_ws/src/caninput_can/caninput_can/_decoder_private.py
+
+# ---- Local machine/robot config (keep the .template versions) ----
+bringup.json
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+*.swp
