@@ -4,6 +4,10 @@ Stream live ROS 2 data into **ATLAS** through Open Streaming — with no per-rob
 The bridge reads each topic's message definition at runtime and turns every numeric field
 into an ATLAS parameter automatically. Anything that can run `foxglove_bridge` works.
 
+
+
+
+
 **You don't need a robot to try it.** Two proven data sources:
 
 | Source | What you need | Guide |
